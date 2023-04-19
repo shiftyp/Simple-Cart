@@ -3,8 +3,9 @@ import { createPortal } from 'react-dom'
 import { observer } from 'mobx-react-lite'
 
 import { ThingsItem } from './ThingsItem'
+import { Things } from '../Observables/Things'
 
-export const ThingsCart = observer(({ things }) => {
+export const ThingsCart = observer(({ things }: { things: Things }) => {
   return (
     <>
       {createPortal(

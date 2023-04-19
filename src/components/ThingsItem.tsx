@@ -2,14 +2,18 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import { Thing } from '../Observables/Things'
 
-export const ThingsItem = ({ item, onClick }: {
-  item: Thing,
+export const ThingsItem = ({
+  item,
+  onClick,
+}: {
+  item: Thing
   onClick: () => void
 }) => {
-  return (<>
-  {createPortal((
-    <style>
-      {`
+  return (
+    <>
+      {createPortal(
+        <style>
+          {`
       .things_item {
         display: flex;
         align-items: center;
@@ -20,10 +24,12 @@ export const ThingsItem = ({ item, onClick }: {
         cursor: pointer;
       }
       `}
-    </style>
-    ), document.head)}
-    <div onClick={onClick} className="things_item">
-      {item.name}
-    </div>
-  </>)
+        </style>,
+        document.head
+      )}
+      <div onClick={onClick} className="things_item">
+        {item.name}
+      </div>
+    </>
+  )
 }
